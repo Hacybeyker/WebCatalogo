@@ -34,7 +34,7 @@ namespace Modelo.c4_persistencia.sqlserver
                 {
                     subCategoria = new SubCategoria();
                     subCategoria.codigosubcategoria = (int)resultado[0];
-                    subCategoria.nombresubcategoria = (string)resultado[1];
+                    subCategoria.nombresubcategoria = (string)resultado[1];                    
                     subCategoria.listaLineaSubCategoria = listaLineaSubCategoria(subCategoria);
                 }
                 resultado.Close();
@@ -208,6 +208,38 @@ namespace Modelo.c4_persistencia.sqlserver
             catch (Exception)
             {
                 throw ExcepcionSQL.crearErrorEliminar();
+            }
+        }
+
+        public List<Categoria> listarCategorias()
+        {
+            try
+            {
+                List<Categoria> listaCategorias = new List<Categoria>();
+                SubCategoria subCategoria = null;
+                Categoria categoria;
+                string consultaSQL = "select sc.codigosubcategoria,sc.nombresubcategoria,c.codigocategoria,c.nombrecategoria from subcategoria sc inner join categoria c on sc.codigocategoria = c.codigocategoria";
+                SqlDataReader resultado;
+                SqlCommand sentencia;
+                sentencia = gestorODBC.prepararSentencia(consultaSQL);
+                resultado = sentencia.ExecuteReader();
+                while (resultado.Read())
+                {
+                    subCategoria = new SubCategoria();
+                    subCategoria.codigosubcategoria = (int)resultado[0];
+                    subCategoria.nombresubcategoria = (string)resultado[1];
+                    categoria = new Categoria();
+                    categoria.codigocategoria = (int)resultado[2];
+                    categoria.nombrecategoria = (string)resultado[3];
+                    categoria.agregarSubCategoria(subCategoria);
+                    listaCategorias.Add(categoria);
+                }
+                resultado.Close();
+                return listaCategorias;
+            }
+            catch (Exception)
+            {
+                throw ExcepcionSQL.crearErrorConsultar();
             }
         }
     }

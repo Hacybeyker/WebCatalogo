@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Modelo.c3_dominio.entidad.Categoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gestionar SubCategoria</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>Sub Categoria</th>
+        <th>Categoria</th>        
+        <th>Acciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.listaSubCategoria[0].nombresubcategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombrecategoria)
+        </td>        
+        <td>
+            @Html.ActionLink("Editar", "Editar", new {  id=item.codigocategoria  }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new {  id=item.codigocategoria })
+        </td>
+    </tr>
+}
+
+</table>

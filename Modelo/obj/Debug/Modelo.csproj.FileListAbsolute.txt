@@ -2,4 +2,3 @@ c:\users\hacybeyker\documents\visual studio 2015\Projects\WebCatalogo\Modelo\bin
 c:\users\hacybeyker\documents\visual studio 2015\Projects\WebCatalogo\Modelo\bin\Debug\Modelo.pdb
 c:\users\hacybeyker\documents\visual studio 2015\Projects\WebCatalogo\Modelo\obj\Debug\Modelo.dll
 c:\users\hacybeyker\documents\visual studio 2015\Projects\WebCatalogo\Modelo\obj\Debug\Modelo.pdb
-c:\users\hacybeyker\documents\visual studio 2015\Projects\WebCatalogo\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache

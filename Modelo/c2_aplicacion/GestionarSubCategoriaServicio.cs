@@ -118,5 +118,22 @@ namespace Modelo.c2_aplicacion
                 throw e;
             }
         }
+
+        public List<Categoria> listarCategorias()
+        {
+            try
+            {
+                List<Categoria> categorias = new List<Categoria>();
+                gestorODBC.abrirConexion();
+                categorias = subCategoriaDAO.listarCategorias();
+                gestorODBC.cerrarConexion();
+                return categorias;
+            }
+            catch (Exception e)
+            {
+                gestorODBC.cerrarConexion();
+                throw e;
+            }
+        }
     }
 }

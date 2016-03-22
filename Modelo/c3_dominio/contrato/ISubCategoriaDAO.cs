@@ -12,6 +12,7 @@ namespace Modelo.c3_dominio.contrato
         void crearSubCategoria(SubCategoria subCategoria, int codigoCategoria);
         void editarSubCategoria(SubCategoria subCategoria);
         void eliminarSubCategoria(SubCategoria subCategoria);
+        List<Categoria> listarCategorias();
         List<SubCategoria> buscarSubCategorias(Categoria categoria);
         SubCategoria buscarSubCategoria(int codigoSubCategoria);
         SubCategoria buscarProductosPorSubCategoria(int codigoSubCategoria);
