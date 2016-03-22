@@ -14,7 +14,7 @@ namespace Modelo.c4_persistencia.sqlserver
         {
             try
             {
-                string url = "data source=Hacybeyker;initial catalog=paginaweb3;persist security info=True;user id=sa;password=123;MultipleActiveResultSets=True;";
+                string url = "data source=Hacybeyker;initial catalog=WebCatalogo;persist security info=True;user id=sa;password=123;MultipleActiveResultSets=True;";
                 conexion = new SqlConnection(url);
                 conexion.Open();
             }
